@@ -1,1 +1,478 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Malkin ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #eadfce;
+  color: #593f36;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 35px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.page.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: clamp(34px, 9vw, 58px);
+  margin-bottom: 12px;
+}
+
+p {
+  line-height: 1.7;
+}
+
+button {
+  border: none;
+  padding: 14px 25px;
+  border-radius: 30px;
+  background: #a96868;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+.script {
+  font-family: 'Caveat', cursive;
+}
+
+/* WELCOME */
+
+#welcome {
+  background:
+    radial-gradient(circle at 10% 15%, #f8eee0, transparent 40%),
+    #e9d7c7;
+}
+
+.welcome-card {
+  border: 2px solid #b58b77;
+  padding: 35px 22px;
+  max-width: 420px;
+  width: 100%;
+  background: #f8eee1;
+  box-shadow: 8px 8px 0 #c9a99a;
+  border-radius: 5px;
+}
+
+.welcome-card h1 {
+  color: #9b5e61;
+}
+
+.welcome-card p {
+  font-size: 17px;
+}
+
+/* QUESTION */
+
+#question-page {
+  background: #ead9ce;
+}
+
+.question-card {
+  background: #fff5e9;
+  padding: 35px 22px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 7px 7px 0 #c8a89b;
+}
+
+#reaction {
+  min-height: 55px;
+  font-family: 'Caveat', cursive;
+  font-size: 27px;
+  color: #a05259;
+}
+
+.shake {
+  animation: shake .35s;
+}
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-9px); }
+  75% { transform: translateX(9px); }
+}
+
+/* SCRAPBOOK */
+
+#memories {
+  background: #e6d5c1;
+  padding: 25px 12px;
+}
+
+.scrapbook {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  min-height: 690px;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 28px,
+      rgba(130,100,75,.08) 29px
+    ),
+    #f5e8d5;
+  border: 9px solid #f8f0e3;
+  box-shadow: 0 5px 18px #9b806d;
+  overflow: hidden;
+}
+
+.scrapbook-title {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 100%;
+  font-family: 'Caveat', cursive;
+  font-size: 48px;
+  font-weight: bold;
+  color: #9d5d5e;
+  transform: rotate(-3deg);
+  z-index: 3;
+}
+
+.scrapbook-subtitle {
+  position: absolute;
+  top: 88px;
+  width: 100%;
+  font-family: 'Caveat', cursive;
+  font-size: 21px;
+}
+
+.photo {
+  position: absolute;
+  width: 29%;
+  height: 150px;
+  background: white;
+  padding: 7px 7px 28px;
+  box-shadow: 2px 4px 8px #927d6c;
+  z-index: 2;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo::after {
+  content: "♡";
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  color: #a96868;
+}
+
+.p1 { top: 140px; left: 5%; transform: rotate(-10deg); }
+.p2 { top: 155px; right: 5%; transform: rotate(9deg); }
+.p3 { top: 340px; left: 4%; transform: rotate(8deg); }
+.p4 { top: 350px; right: 4%; transform: rotate(-8deg); }
+
+.camera {
+  position: absolute;
+  top: 280px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-5deg);
+  font-size: 65px;
+  z-index: 1;
+  background: #e9c7b6;
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 3px 5px 0 #c69d8d;
+}
+
+.sticker {
+  position: absolute;
+  font-size: 27px;
+}
+
+.s1 { top: 120px; left: 5px; }
+.s2 { top: 300px; right: 10px; }
+.s3 { bottom: 115px; left: 10px; }
+.s4 { bottom: 110px; right: 10px; }
+
+.collage-caption {
+  position: absolute;
+  bottom: 70px;
+  width: 100%;
+  font-family: 'Caveat', cursive;
+  font-size: 25px;
+  color: #935d5b;
+}
+
+.collage-next {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  margin: 0;
+  font-size: 12px;
+  padding: 12px 17px;
+}
+
+/* LETTER */
+
+#letter-page {
+  background: #ead9ce;
+}
+
+.letter {
+  background: #fff8ed;
+  max-width: 440px;
+  width: 100%;
+  padding: 30px 23px;
+  box-shadow: 6px 7px 0 #c9a99a;
+  text-align: left;
+  border: 1px solid #d7b9a5;
+}
+
+.letter h1 {
+  font-family: 'Caveat', cursive;
+  color: #a45f62;
+  text-align: center;
+  font-size: 42px;
+}
+
+.letter p {
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* FINAL */
+
+#final-page {
+  background: #e8d4c5;
+}
+
+.final-card {
+  background: #fff5e9;
+  padding: 35px 20px;
+  max-width: 400px;
+  width: 100%;
+  border: 2px dashed #b77e75;
+}
+
+.final-card h1 {
+  color: #a45f62;
+}
+
+.music-button {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 10;
+  padding: 12px 16px;
+  font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC: Add birthday-song.mp3 to the repository -->
+<audio id="music" loop>
+  <source src="birthday-song.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-button" onclick="toggleMusic()">♫ Music</button>
+
+<!-- PAGE 1 -->
+<section class="page active" id="welcome">
+  <div class="welcome-card">
+    <div style="font-size:45px">🎀 ♡ 🌷</div>
+    <h1>Happy Birthday,<br>Malkin 🙇🏽 ♡</h1>
+    <p>This guy has a little surprise for you...</p>
+    <p class="script" style="font-size:25px">Something special awaits you ♡</p>
+    <button onclick="showPage('question-page')">OPEN YOUR SURPRISE →</button>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="question-page">
+  <div class="question-card" id="question">
+    <div style="font-size:40px">💌</div>
+    <p class="script" style="font-size:25px">Ahem b4 the surprise,</p>
+    <h1 style="font-size:35px">Admit it, you love me. 😏</h1>
+    <button onclick="yesClicked()">YES, I DO ❤️</button>
+    <button onclick="noClicked()" style="background:#82736b">NO, NEVER 🙄</button>
+    <div id="reaction"></div>
+  </div>
+</section>
+
+<!-- PAGE 3: SCRAPBOOK -->
+<section class="page" id="memories">
+  <div class="scrapbook">
+
+    <div class="scrapbook-title">
+      HAPPY BIRTHDAY ♡
+    </div>
+
+    <div class="scrapbook-subtitle">
+      A little collection of memories...
+    </div>
+
+    <div class="photo p1">
+      <img src="photo1.jpg" alt="Memory 1">
+    </div>
+
+    <div class="photo p2">
+      <img src="photo2.jpg" alt="Memory 2">
+    </div>
+
+    <div class="photo p3">
+      <img src="photo3.jpg" alt="Memory 3">
+    </div>
+
+    <div class="photo p4">
+      <img src="photo4.jpg" alt="Memory 4">
+    </div>
+
+    <div class="camera">📷</div>
+
+    <div class="sticker s1">🌸</div>
+    <div class="sticker s2">⭐</div>
+    <div class="sticker s3">🦋</div>
+    <div class="sticker s4">💗</div>
+
+    <div class="collage-caption">
+      A little collection of you & me ♡
+    </div>
+
+    <button class="collage-next" onclick="showPage('letter-page')">
+      A LETTER FOR YOU ♡
+    </button>
+
+  </div>
+</section>
+
+<!-- PAGE 4: LETTER -->
+<section class="page" id="letter-page">
+  <div class="letter">
+    <h1>To my favourite person ♡</h1>
+
+    <p>Happy Birthday! ❤️</p>
+
+    <p>
+      I hope your day is filled with happiness, laughter,
+      beautiful surprises and everything that makes you smile.
+    </p>
+
+    <p>
+      I just want you to know how special you are.
+      I'm genuinely grateful to have you in my life.
+      Every little conversation, every silly moment
+      and every memory means a lot to me.
+    </p>
+
+    <p>
+      I hope this new year of your life brings you
+      endless opportunities, success and all the
+      happiness you deserve.
+    </p>
+
+    <p>
+      Whatever happens, I hope you never stop being
+      the wonderful person you are.
+    </p>
+
+    <p class="script" style="font-size:27px">
+      With lots of love,<br>
+      Your favourite idiot ♡
+    </p>
+
+    <div style="text-align:center">
+      <button onclick="showPage('final-page')">ONE LAST THING →</button>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page" id="final-page">
+  <div class="final-card">
+    <div style="font-size:55px">🎂 🌷 🎀</div>
+    <h1>Once again,<br>Happy Birthday!</h1>
+    <p class="script" style="font-size:27px">
+      May your smile never fade. ♡
+    </p>
+    <p>Made with love, just for you.</p>
+    <button onclick="showPage('welcome')">REPLAY ♡</button>
+  </div>
+</section>
+
+<script>
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  document.getElementById(pageId).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function noClicked() {
+  const reaction = document.getElementById('reaction');
+  const question = document.getElementById('question');
+
+  reaction.innerHTML = 'EXCUSE ME??? 😭<br>Try again, miss.';
+
+  question.classList.remove('shake');
+  void question.offsetWidth;
+  question.classList.add('shake');
+}
+
+function yesClicked() {
+  document.getElementById('reaction').innerHTML =
+    'I KNEW IT! HEHE ❤️';
+
+  setTimeout(() => showPage('memories'), 1500);
+}
+
+function toggleMusic() {
+  const music = document.getElementById('music');
+
+  if (music.paused) {
+    music.play().catch(() => {
+      alert('Add birthday-song.mp3 to your repository first!');
+    });
+  } else {
+    music.pause();
+  }
+}
+</script>
+
+</body>
+  </html>
+
